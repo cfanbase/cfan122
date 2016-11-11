@@ -7,7 +7,7 @@ module Cfan122
 
     included do
       include HTTParty
-      debug_output $stdout
+      # debug_output $stdout
       headers({
         "Accept-Encoding" => 'gzip',
         "Accept" => 'application/json',
