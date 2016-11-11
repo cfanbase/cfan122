@@ -4,25 +4,24 @@ module Cfan122
 
   class ExamPlanDetail < Operation
     class Request < Operation::Request
-      PARAMS = [:startTime, :endTime, :fzjg, :kscx, :ksdd, :kskm, :zt]
+      PARAMS = [:startTime, :endTime, :fzjg, :kscx, :ksdd, :kskm, :page, :size, :zt]
       attr_accessor *PARAMS
       include HttpConfig
       include OperationMethods
 
       def execute params = {}
         options = attributes.merge(params)
-        self.class.post('/m/examplan/getExamPlanDetail', body: to_params(options))
+        self.class.post('/m/examplan/getExamPlanResult', body: to_params(options))
       end
 
       private
-      def reset
-        set_default
+      def set_request_params
         self.attributes = {
           startTime: Date.today,
           endTime: Date.today + 1.year,
           fzjg: city, kscx: type,
           ksdd: location, kskm: subject,
-          zt: 2
+          page: 1, size: 99, zt: 2
         }
       end
 
@@ -30,7 +29,7 @@ module Cfan122
 
     class Response < Operation::Response
       def body
-        to_json['data'][0]
+        to_json['data']
       end
     end
   end

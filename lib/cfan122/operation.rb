@@ -23,13 +23,15 @@ module Cfan122
       attr_accessor :body, :response, :impersonation_user
 
       def initialize params = {}
-        reset
-        self.attributes = params
+        set_default
         set_base_uri province
+        self.attributes = params
+        set_request_params
       end
 
-      def reset
-      end
+      def set_default; end
+
+      def set_request_params; end
 
       def execute
         raise NotImplemented
@@ -56,7 +58,7 @@ module Cfan122
       end
 
       def to_json
-        JSON.parse(response.body)
+        response.body.blank? ? {} : JSON.parse(response.body)
       end
 
     end

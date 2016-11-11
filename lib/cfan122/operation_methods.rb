@@ -35,7 +35,7 @@ module Cfan122
         @type ||= 'C1'
         @city ||= '辽B'
         @location ||= '21020103'
-        @page ||= 0
+        @page ||= 1
       end
     end
 

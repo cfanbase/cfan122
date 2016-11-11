@@ -15,8 +15,7 @@ module Cfan122
       end
 
       private
-      def reset
-        set_default
+      def set_request_params
         self.attributes = {fzjg: city, kskm: subject}
       end
     end
