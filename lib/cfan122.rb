@@ -15,6 +15,7 @@ require "cfan122/operations/exam_agency"
 require "cfan122/operations/exam_plan_list"
 require "cfan122/operations/exam_plan_detail"
 require "cfan122/operations/exam_plan_result"
+require "cfan122/operations/exam_student_list"
 require "cfan122/yaml_generator"
 require "cfan122/version"
 

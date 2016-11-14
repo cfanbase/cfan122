@@ -21,14 +21,14 @@ module Cfan122
           endTime: Date.today + 1.year,
           fzjg: city, kscx: type,
           ksdd: location, kskm: subject,
-          page: page, zt: 2
+          page: page, zt: 0
         }
       end
     end
 
     class Response < Operation::Response
       def body
-        to_json['data'][0]
+        to_json['data']
       end
     end
   end
